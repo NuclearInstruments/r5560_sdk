@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "R5560_SDKApp", "R5560_SDKApp\R5560_SDKApp.vcxproj", "{9BDDF37F-5295-4764-8EA9-4BBEAA1C7006}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "R5560_SDKLib", "R5560_SDKLib\R5560_SDKLib.vcxproj", "{872B04A2-DFEC-48F8-B2DE-72B27660ABA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BDDF37F-5295-4764-8EA9-4BBEAA1C7006}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9BDDF37F-5295-4764-8EA9-4BBEAA1C7006}.Debug|Win32.Build.0 = Debug|Win32
+		{9BDDF37F-5295-4764-8EA9-4BBEAA1C7006}.Release|Win32.ActiveCfg = Release|Win32
+		{9BDDF37F-5295-4764-8EA9-4BBEAA1C7006}.Release|Win32.Build.0 = Release|Win32
+		{872B04A2-DFEC-48F8-B2DE-72B27660ABA2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{872B04A2-DFEC-48F8-B2DE-72B27660ABA2}.Debug|Win32.Build.0 = Debug|Win32
+		{872B04A2-DFEC-48F8-B2DE-72B27660ABA2}.Release|Win32.ActiveCfg = Release|Win32
+		{872B04A2-DFEC-48F8-B2DE-72B27660ABA2}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
