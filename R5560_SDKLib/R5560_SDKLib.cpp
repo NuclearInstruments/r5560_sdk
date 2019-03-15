@@ -216,8 +216,8 @@ R5560_SDKLIB_API int NI_ReadFifo(uint32_t *data, uint32_t count,
 		Length -= bytesRcvd;
 	}
 
-	memcpy(data, buffer, count*sizeof(uint32_t));
-	*read_data=count;
+	memcpy(data, buffer, valid_word *sizeof(uint32_t));
+	*read_data= valid_word;
 	free(buffer);
 
 	return 0;
