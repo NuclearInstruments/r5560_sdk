@@ -27,6 +27,12 @@
     <ClInclude Include="R5560_SDKLib.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="zmq.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="zmq_utils.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -38,5 +44,8 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libzmq-v120-mt-4_0_4.lib" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include "zmq.h"
 #include "R5560_SDKLib.h"
 
 
@@ -43,6 +44,7 @@ R5560_SDKLIB_API int fnR5560_SDKLib(void)
 // Connect to R5560
 R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Handle *handle)
 {
+	char zmq_string[255];
 	int Length;
 	sockInit();
 	int Csocket;
@@ -72,6 +74,22 @@ R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Han
 	handle->__IICBASEADDRESS=0;
 	handle->__IICBASEADDRESS_STATUS=0;
 	handle->socketType = LOW_LEVEL_TCP;
+
+	//try to conenct to zmq server 
+	for (int i=0;i<ZMQ_ENDPOINT_COUNT;i++)
+	{
+		handle->zmq[i].zmq_context = zmq_ctx_new ();
+		handle->zmq[i].zmq_pullsocket = zmq_socket (handle->zmq[i].zmq_context, ZMQ_PULL);
+		int hwm=10;
+		zmq_setsockopt(handle->zmq[i].zmq_pullsocket, ZMQ_RCVHWM, &hwm, sizeof(int));
+		sprintf(zmq_string,"tcp://%s:%d",ipaddress, 5556+i);
+		int rc = zmq_connect (handle->zmq[i].zmq_pullsocket, zmq_string);
+		handle->zmq[i].recv_blocking = 1;
+		if (rc==0)
+			handle->zmq[i].zmq_connected=1;
+		else
+			handle->zmq[i].zmq_connected=0;
+	}
 	return 0;
 }
 
@@ -430,7 +448,50 @@ R5560_SDKLIB_API int NI_USB3_IIC_WriteData(uint8_t address, uint8_t *value, int 
 }
 
 
+R5560_SDKLIB_API int NI_DMA_Read(uint32_t dma_channel, char *buffer, uint32_t max_len, uint32_t *valid_data, tR5560_Handle *handle)
+{
+	if (dma_channel < ZMQ_ENDPOINT_COUNT)
+	{
+		if (handle->zmq[dma_channel].zmq_connected != 1) return -2;
+		int flags=0;
+		if (handle->zmq[dma_channel].recv_blocking != 1) flags += ZMQ_DONTWAIT;
+		int size = zmq_recv(handle->zmq[dma_channel].zmq_pullsocket, buffer, max_len, flags);
+		if (size > 0)
+		{
+			*valid_data = size;
+			return 0;
+		}
+		else
+		{
+			int err;
+			err = zmq_errno() ;
+			*valid_data = 0;
+			if (err == EAGAIN)
+			{
+				return 0;
+			}
+			else
+				return -3;
+		}
+	}
+	else
+		return -1;
+}
 
+R5560_SDKLIB_API int NI_DMA_SetOptions(uint32_t dma_channel, int blocking, int timeout, int buffer_length, tR5560_Handle *handle)
+{
+	if (dma_channel < ZMQ_ENDPOINT_COUNT)
+	{
+		if (handle->zmq[dma_channel].zmq_connected != 1) return -2;
+
+		zmq_setsockopt(handle->zmq[dma_channel].zmq_pullsocket, ZMQ_RCVHWM, &buffer_length, sizeof(int));
+		zmq_setsockopt(handle->zmq[dma_channel].zmq_pullsocket, ZMQ_RCVTIMEO, &timeout, sizeof(int));
+		handle->zmq[dma_channel].recv_blocking = blocking;
+	}
+	else
+		return -1;
+
+}
 
 int sockInit(void)
 {

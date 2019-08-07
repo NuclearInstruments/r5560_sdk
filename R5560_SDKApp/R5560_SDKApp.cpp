@@ -3,11 +3,12 @@
 
 #include "stdafx.h"
 #include <stdint.h>
+#include <time.h>
 
 
 #include "../R5560_SDKLib/R5560_SDKLib.h"
 
-#define IPADDR "192.168.15.116"
+#define IPADDR "10.128.1.67"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -18,6 +19,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	uint32_t *vector_test;
 	uint32_t rc;
 	uint32_t old;
+	char *DMA_BUFFER;
 	int i=0;
 	int errCount;
 
@@ -29,7 +31,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 0;
 	}
 
-	if (NI_ReadReg(&Model, 0x03FFFFFF, &handle)!=0)
+	printf ("ZMQ DMA Status:\n");
+	for (i=0;i<ZMQ_ENDPOINT_COUNT;i++)
+		printf("DMA [%d] -> %s\n", i, handle.zmq[i].zmq_connected ? "connected": "not connected");
+
+	printf ("\n");
+ 	if (NI_ReadReg(&Model, 0x03FFFFFF, &handle)!=0)
 	{
 		printf("Register READ failed\n");
 		return 0;
@@ -114,6 +121,28 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	printf("Total received data: %d\n", rc);
 
+	printf ("Starting DMA test... \n");
+
+	NI_DMA_SetOptions(0, 1, -1, 10, &handle);
+
+	NI_WriteReg(1, 0x3, &handle);
+
+	DMA_BUFFER = (char*) malloc(32*1024*1024*sizeof(char));
+	const clock_t begin_time = clock();
+	float totalbyte=0;
+	for (i=0;i<10000;i++)
+	{
+		uint32_t size;
+		float secs;
+		float speed;
+		int rc = NI_DMA_Read(0, DMA_BUFFER, 1024*1024*32, &size, &handle);
+		secs = float( clock () - begin_time ) /  CLOCKS_PER_SEC;
+		totalbyte+=size;
+		speed = (totalbyte/secs)/1024.0;
+		printf("Test %4d. Transfer size: %8x ... speed: %6.3fkB/s\r",i,size, speed);
+		fflush(stdout);
+	}
+	printf ("\n\n");
 	system("pause");
 }
 
