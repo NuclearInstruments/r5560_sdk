@@ -40,7 +40,13 @@ R5560_SDKLIB_API int fnR5560_SDKLib(void)
 }
 
 
+R5560_SDKLIB_API void * R5560_HandleAllocator()
+{
+	tR5560_Handle *tr;
+	tr=(tR5560_Handle*)  malloc (sizeof(tR5560_Handle));
+	return tr;
 
+}
 // Connect to R5560
 R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Handle *handle)
 {
@@ -74,13 +80,15 @@ R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Han
 	handle->__IICBASEADDRESS=0;
 	handle->__IICBASEADDRESS_STATUS=0;
 	handle->socketType = LOW_LEVEL_TCP;
+	
+	handle->zmq = (tZMQEndpoint*) malloc(sizeof(tZMQEndpoint) * (ZMQ_ENDPOINT_COUNT+1));
 
 	//try to conenct to zmq server 
 	for (int i=0;i<ZMQ_ENDPOINT_COUNT;i++)
 	{
 		handle->zmq[i].zmq_context = zmq_ctx_new ();
 		handle->zmq[i].zmq_pullsocket = zmq_socket (handle->zmq[i].zmq_context, ZMQ_PULL);
-		int hwm=10;
+		int hwm=5;
 		zmq_setsockopt(handle->zmq[i].zmq_pullsocket, ZMQ_RCVHWM, &hwm, sizeof(int));
 		sprintf(zmq_string,"tcp://%s:%d",ipaddress, 5556+i);
 		int rc = zmq_connect (handle->zmq[i].zmq_pullsocket, zmq_string);
@@ -90,6 +98,7 @@ R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Han
 		else
 			handle->zmq[i].zmq_connected=0;
 	}
+	
 	return 0;
 }
 

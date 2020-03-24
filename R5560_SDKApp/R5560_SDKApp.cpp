@@ -8,7 +8,7 @@
 
 #include "../R5560_SDKLib/R5560_SDKLib.h"
 
-#define IPADDR "10.128.1.67"
+#define IPADDR "192.168.50.150"
 
 int _tmain(int argc, _TCHAR* argv[])
 {

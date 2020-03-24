@@ -54,7 +54,7 @@ typedef struct {
 	uint32_t __IICBASEADDRESS;
 	uint32_t __IICBASEADDRESS_STATUS;
 	SOCKET_TYPE socketType;
-	tZMQEndpoint zmq[ZMQ_ENDPOINT_COUNT];
+	tZMQEndpoint *zmq;
 } tR5560_Handle;
 
 R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Handle *handle);
@@ -74,3 +74,4 @@ R5560_SDKLIB_API int NI_WriteReg(uint32_t data, uint32_t address, tR5560_Handle 
 R5560_SDKLIB_API int NI_ReadReg(uint32_t *data, uint32_t address, tR5560_Handle *handle);
 R5560_SDKLIB_API int NI_DMA_Read(uint32_t dma_channel, char *buffer, uint32_t max_len, uint32_t *valid_data, tR5560_Handle *handle);
 R5560_SDKLIB_API int NI_DMA_SetOptions(uint32_t dma_channel, int blocking, int timeout, int buffer_length, tR5560_Handle *handle);
+R5560_SDKLIB_API void * R5560_HandleAllocator();
