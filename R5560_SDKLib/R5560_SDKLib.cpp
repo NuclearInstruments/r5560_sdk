@@ -211,6 +211,7 @@ R5560_SDKLIB_API int NI_ReadFifo(uint32_t *data, uint32_t count,
 
 	Length = 6*4 ;
 	if (send(handle->Csocket, (char*)buffer, Length, 0) != Length) {
+		free(buffer);
 		return -2;
 	}
 
@@ -221,6 +222,7 @@ R5560_SDKLIB_API int NI_ReadFifo(uint32_t *data, uint32_t count,
 	
 	while (Length>0) {
 		if ((bytesRcvd = recv(handle->Csocket, (char*)(buffer + totalBytesRcvd), Length, 0)) <= 0) {
+			free(buffer);
 			return -3;
 		}
 		totalBytesRcvd += bytesRcvd; // Keep tally of total bytes
@@ -232,11 +234,15 @@ R5560_SDKLIB_API int NI_ReadFifo(uint32_t *data, uint32_t count,
 	totalBytesRcvd = 0;
 	Length=valid_word * 4;
 
-	if (valid_word>count)
+	if (valid_word > count)
+	{
+		free(buffer);
 		return -4;
+	}
 	
 	while (Length>0) {
 		if ((bytesRcvd = recv(handle->Csocket, (char*)(buffer + totalBytesRcvd), Length, 0)) <= 0) {
+			free(buffer);
 			return -3;
 		}
 		totalBytesRcvd += bytesRcvd; // Keep tally of total bytes
