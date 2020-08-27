@@ -4,10 +4,21 @@
 // che utilizza questa DLL. In questo modo qualsiasi altro progetto i cui file di origine includono questo file vedranno le funzioni 
 // R5560_SDKLIB_API come importate da una DLL, mentre la DLL vedrà i simboli
 // definiti con questa macro come esportati.
-#ifdef R5560_SDKLIB_EXPORTS
-#define R5560_SDKLIB_API extern "C" __declspec(dllexport)
+
+
+
+#ifdef _WIN32
+    #ifdef R5560_SDKLIB_EXPORTS
+        #define R5560_SDKLIB_API extern "C" __declspec(dllexport)// __declspec(dllexport)
+    #else
+        #define R5560_SDKLIB_API extern "C" __declspec(dllimport)
+    #endif
 #else
-#define R5560_SDKLIB_API extern "C" __declspec(dllimport)
+    #ifdef R5560_SDKLIB_EXPORTS
+        #define R5560_SDKLIB_API __attribute__((visibility("default")))
+    #else
+        #define R5560_SDKLIB_API
+    #endif
 #endif
 
 #define NO_ERROR 0
@@ -26,18 +37,18 @@
 
 #define ZMQ_ENDPOINT_COUNT 1
 
-enum SOCKET_TYPE
+typedef enum 
 {
 	LOW_LEVEL_TCP = 0
-} ;
+} SOCKET_TYPE;
 
 
-enum BUS_MODE
+typedef enum 
 {
 	REG_ACCESS = 0,
 	STREAMING_BLOCKING = 1,
 	STREAMING_NONBLOCKING = 2
-} ;
+} BUS_MODE;
 
 
 typedef struct 
