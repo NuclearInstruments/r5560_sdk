@@ -1,7 +1,10 @@
 // R5560_SDKApp.cpp : definisce il punto di ingresso dell'applicazione console.
 //
 
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
+
 #include <stdint.h>
 #include <time.h>
 
@@ -10,7 +13,11 @@
 
 #define IPADDR "192.168.50.150"
 
-int _tmain(int argc, _TCHAR* argv[])
+#ifdef _WIN32
+int _tmain(int argc, char* argv[])
+#else
+int main(int argc, char **argv)
+#endif
 {
 	tR5560_Handle handle;
 	uint32_t Model;
@@ -136,7 +143,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		float secs;
 		float speed;
 		int rc = NI_DMA_Read(0, DMA_BUFFER, 1024*1024*32, &size, &handle);
-		secs = float( clock () - begin_time ) /  CLOCKS_PER_SEC;
+		secs = (float)( clock () - begin_time ) /  CLOCKS_PER_SEC;
 		totalbyte+=size;
 		speed = (totalbyte/secs)/1024.0;
 		printf("Test %4d. Transfer size: %8x ... speed: %6.3fkB/s\r",i,size, speed);

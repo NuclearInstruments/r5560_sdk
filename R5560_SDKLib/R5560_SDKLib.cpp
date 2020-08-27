@@ -1,7 +1,10 @@
 // R5560_SDKLib.cpp: definisce le funzioni esportate per l'applicazione DLL.
 //
 
-#include "stdafx.h"
+#ifdef _WIN32
+	#include "stdafx.h"
+#endif
+
 #include "zmq.h"
 #include "R5560_SDKLib.h"
 
@@ -20,9 +23,17 @@
   #include <arpa/inet.h>
   #include <netdb.h>  /* Needed for getaddrinfo() and freeaddrinfo() */
   #include <unistd.h> /* Needed for close() */
+  #include <string.h> /* Needed for close() */
 #endif
 
 #define ErrorHandler printf
+
+
+#ifdef _WIN32
+
+#else
+	#define SOCKET int
+#endif
 
 int sockInit(void);
 int sockQuit(void);
