@@ -7,11 +7,11 @@
 
 #ifdef _WIN32
 #include "targetver.h"
-#endif
+
 
 #include <stdio.h>
 #include <tchar.h>
-
+#endif
 
 
 // TODO: fare riferimento qui alle intestazioni aggiuntive richieste dal programma
