@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <time.h>
 
-
 #include "../R5560_SDKLib/R5560_SDKLib.h"
 
 #define IPADDR "192.168.50.150"
