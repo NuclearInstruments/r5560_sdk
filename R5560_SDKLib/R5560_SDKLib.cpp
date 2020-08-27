@@ -1,9 +1,9 @@
 // R5560_SDKLib.cpp: definisce le funzioni esportate per l'applicazione DLL.
 //
 
-#ifdef _WIN32
+
 	#include "stdafx.h"
-#endif
+
 
 #include "zmq.h"
 #include "R5560_SDKLib.h"

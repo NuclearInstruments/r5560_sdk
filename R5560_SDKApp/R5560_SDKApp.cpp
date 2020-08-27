@@ -1,9 +1,9 @@
 // R5560_SDKApp.cpp : definisce il punto di ingresso dell'applicazione console.
 //
 
-#ifdef _WIN32
+
 #include "stdafx.h"
-#endif
+
 
 #include <stdint.h>
 #include <time.h>
