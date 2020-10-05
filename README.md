@@ -23,7 +23,7 @@ Install the library in /usr/local/lib
 cd Debug
 sudo cp libr5560.so.1.0.0 /usr/local/lib
 cd /usr/local/lib
-sudo ln -s libr5560.so.1.0.0 librprng.so
+sudo ln -s libr5560.so.1.0.0 libr5560.so
 ```
 Reload Linux library database
 ```bash
