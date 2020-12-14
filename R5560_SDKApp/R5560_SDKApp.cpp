@@ -30,10 +30,11 @@ int main(int argc, char **argv)
 	int errCount;
 
 	vector_test = (uint32_t *) malloc(1024*sizeof(uint32_t));
-
-	if (R5560_ConnectTCP(IPADDR, 8888, &handle)!=0)
+	int err_code = 0;
+	err_code = R5560_ConnectTCP(IPADDR, 8888, &handle);
+	if (err_code !=0)
 	{
-		printf("Unable to connect to: %s", IPADDR);
+		printf("Unable to connect to: %s - %d", IPADDR, err_code);
 		return 0;
 	}
 

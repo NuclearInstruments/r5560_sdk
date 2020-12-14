@@ -19,6 +19,7 @@
     #else
         #define R5560_SDKLIB_API
     #endif
+    
 #endif
 
 #define NO_ERROR 0
@@ -68,6 +69,13 @@ typedef struct {
 	tZMQEndpoint *zmq;
 } tR5560_Handle;
 
+#ifndef _WIN32 
+	#pragma once
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+#endif
 R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Handle *handle);
 R5560_SDKLIB_API int NI_CloseConnection(tR5560_Handle *handle);
 R5560_SDKLIB_API int NI_WriteData(uint32_t *data, uint32_t count, 
@@ -86,3 +94,10 @@ R5560_SDKLIB_API int NI_ReadReg(uint32_t *data, uint32_t address, tR5560_Handle 
 R5560_SDKLIB_API int NI_DMA_Read(uint32_t dma_channel, char *buffer, uint32_t max_len, uint32_t *valid_data, tR5560_Handle *handle);
 R5560_SDKLIB_API int NI_DMA_SetOptions(uint32_t dma_channel, int blocking, int timeout, int buffer_length, tR5560_Handle *handle);
 R5560_SDKLIB_API void * R5560_HandleAllocator();
+
+#ifndef _WIN32
+	
+#ifdef __cplusplus
+}
+#endif
+#endif
