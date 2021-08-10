@@ -80,6 +80,7 @@ R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Han
 	sad.sin_addr.s_addr = inet_addr(ipaddress); // IP del server
 	sad.sin_port = htons(port); // Server port
 	// CONNESSIONE AL SERVER
+	printf("connecting to: %s:%d\n", ipaddress, port);
 	if (connect(Csocket, (struct sockaddr *) &sad, sizeof(sad)) < 0) {
 		//ErrorHandler("Failed to connect.\n");
 		sockClose(Csocket);
@@ -518,6 +519,65 @@ R5560_SDKLIB_API int NI_DMA_SetOptions(uint32_t dma_channel, int blocking, int t
 		return -1;
 
 }
+
+
+
+R5560_SDKLIB_API int NI_InternalWriteReg(uint32_t data, uint32_t address, tR5560_Handle *handle)
+{
+	int Length;
+	uint8_t buffer[256];
+
+	if(handle->connected==0) return -1;
+
+	*((uint32_t *)(buffer) + 0) = 0x80000000;
+	*((uint32_t *)(buffer) + 1) = 0x00000005;
+	*((uint32_t *)(buffer) + 2) = address;
+	*((uint32_t *)(buffer) + 3) = 0x00000001;
+	*((uint32_t *)(buffer) + 4) = data;
+
+	Length = 5*4 ;
+	if (send(handle->Csocket, (char*)buffer, Length, 0) != Length) {
+		return -2;
+	}
+	
+	return 0;
+
+}
+R5560_SDKLIB_API int NI_InternalReadReg(uint32_t *data, uint32_t address, tR5560_Handle *handle)
+{
+	int Length;
+	uint8_t buffer[256];
+
+	if(handle->connected==0) return -1;
+
+	*((uint32_t *)(buffer) + 0) = 0x80000000;
+	*((uint32_t *)(buffer) + 1) = 0x00000006;
+	*((uint32_t *)(buffer) + 2) = address;
+	*((uint32_t *)(buffer) + 3) = 0x00000001;
+
+	Length = 4*4 ;
+	if (send(handle->Csocket, (char*)buffer, Length, 0) != Length) {
+		return -2;
+	}
+
+
+	int bytesRcvd;
+	int totalBytesRcvd = 0;
+	Length=1 * 4;
+	
+	while (Length>0) {
+		if ((bytesRcvd = recv(handle->Csocket, (char*)(buffer + totalBytesRcvd), Length, 0)) <= 0) {
+			return -3;
+		}
+		totalBytesRcvd += bytesRcvd; // Keep tally of total bytes
+		Length -= bytesRcvd;
+	}
+	
+	memcpy(data, buffer, sizeof(uint32_t));
+	
+	return 0;
+}
+
 
 int sockInit(void)
 {

@@ -38,7 +38,7 @@ IncludePCH             :=
 RcIncludePath          := 
 Libs                   := $(LibrarySwitch)r5560 
 ArLibs                 :=  "r5560" 
-LibPath                := $(LibraryPathSwitch). 
+LibPath                := $(LibraryPathSwitch). ../linux/libr5560.so.1.0.0 
 
 ##
 ## Common variables

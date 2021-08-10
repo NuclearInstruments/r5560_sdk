@@ -69,6 +69,29 @@ typedef struct {
 	tZMQEndpoint *zmq;
 } tR5560_Handle;
 
+typedef enum {
+	IREG_VERSION_SW=0,
+	IREG_VERSION_MANAGER=1,
+	IREG_VERSION_BRIDGE=2,
+	IREG_MODEL=3,
+	IREG_SYS_PID=5,
+	IREG_DAQ_PID=6,
+	IREG_GAIN=7,
+	IREG_OFFSET=8,
+	IREG_SHAPER=9,
+	IREG_50R=10,
+	IREG_5DIV=11,
+	IREG_DAQ_STATUS=12,
+	IREG_DAQ_ETH=13,
+	IREG_DAQ_IP=14,
+	IREG_DAQ_POSITION=15,
+	IREG_FW_VER=16,
+	IREG_FW_BUILD=17,
+	IREG_FW_STRING=18,
+	IREG_REBOOT_DAQ=19,
+} t_IREG;
+
+
 #ifndef _WIN32 
 	#pragma once
 #ifdef __cplusplus
@@ -94,6 +117,9 @@ R5560_SDKLIB_API int NI_ReadReg(uint32_t *data, uint32_t address, tR5560_Handle 
 R5560_SDKLIB_API int NI_DMA_Read(uint32_t dma_channel, char *buffer, uint32_t max_len, uint32_t *valid_data, tR5560_Handle *handle);
 R5560_SDKLIB_API int NI_DMA_SetOptions(uint32_t dma_channel, int blocking, int timeout, int buffer_length, tR5560_Handle *handle);
 R5560_SDKLIB_API void * R5560_HandleAllocator();
+
+R5560_SDKLIB_API int NI_InternalWriteReg(uint32_t data, uint32_t address, tR5560_Handle *handle);
+R5560_SDKLIB_API int NI_InternalReadReg(uint32_t *data, uint32_t address, tR5560_Handle *handle);
 
 #ifndef _WIN32
 	

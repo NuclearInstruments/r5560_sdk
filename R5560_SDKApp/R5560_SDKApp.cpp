@@ -10,7 +10,7 @@
 
 #include "../R5560_SDKLib/R5560_SDKLib.h"
 
-#define IPADDR "192.168.50.150"
+#define IPADDR "192.168.50.204"
 
 #ifdef _WIN32
 int _tmain(int argc, char* argv[])
@@ -34,9 +34,17 @@ int main(int argc, char **argv)
 	err_code = R5560_ConnectTCP(IPADDR, 8888, &handle);
 	if (err_code !=0)
 	{
-		printf("Unable to connect to: %s - %d", IPADDR, err_code);
+		printf("Unable to connect to: %s - %d\n", IPADDR, err_code);
 		return 0;
 	}
+
+/*	printf("Write Internal register GAIN on R5560SE\n");
+	NI_InternalWriteReg(10, (IREG_GAIN << 16) + 0, &handle);
+	printf("Read Internal register GAIN on R5560SE\n");
+	NI_InternalReadReg(&data, (IREG_GAIN << 16) + 0, &handle);
+	printf("Result: %x\n", data);*/
+
+	
 
 	printf ("ZMQ DMA Status:\n");
 	for (i=0;i<ZMQ_ENDPOINT_COUNT;i++)
