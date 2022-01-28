@@ -10,7 +10,7 @@
 
 #include "../R5560_SDKLib/R5560_SDKLib.h"
 
-#define IPADDR "192.168.50.204"
+#define IPADDR "192.168.50.135"
 
 #ifdef _WIN32
 int _tmain(int argc, char* argv[])

@@ -20,12 +20,15 @@ Just enter make.
 
 Install the library in /usr/local/lib
 ```bash
-cd Debug
+cd linux
 sudo cp libr5560.so.1.0.0 /usr/local/lib
 cd /usr/local/lib
-sudo ln -s libr5560.so.1.0.0 libr5560.so
+sudo ln -s libr5560.so.1.0.0 librprng.so
 ```
 Reload Linux library database
 ```bash
 sudo ldconfig
 ```
+
+
+
