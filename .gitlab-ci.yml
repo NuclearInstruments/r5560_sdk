@@ -9,7 +9,7 @@ build_linux_x64:
   artifacts:
     untracked: false
     paths:
-      - linux/libr5560.so.1.0.0
+      - linux/libr5560.1.0.0.so
 
 # build_vs2022_windows_x64:
 #   stage: build
