@@ -36,7 +36,7 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)r5560 
+Libs                   := $(LibrarySwitch) pthread
 ArLibs                 :=  "r5560" 
 LibPath                := $(LibraryPathSwitch). ../linux/libr5560.so.1.0.0 
 
