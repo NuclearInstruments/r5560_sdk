@@ -15,10 +15,10 @@ build_vs2022_windows:
   stage: build
   image: registry.lanni/microsoft/win10-vc-build-tools-2022:latest
   script:
-    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
-    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x64
-    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Release -p:Platform=x86
-    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x86
+    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
+    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x64
+    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x86
+    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x86
   tags:
     - docker-windows
   artifacts:
