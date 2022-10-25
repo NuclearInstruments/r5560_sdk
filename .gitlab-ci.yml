@@ -37,18 +37,17 @@ build_linux_x64:
 #     paths:
 #       - Release/cpp-sample_2022.exe
 
-# build_vs2017_windows_x64:
-#   stage: build
-#   image: registry.lanni/microsoft/win10-vc-build-tools-2017:latest
-#   script:
-#     - MSBuild cpp-sample_2017.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
-#   tags:
-#     - docker-windows
-#   artifacts:
-#     untracked: false
-#     expire_in: "30 days"
-#     paths:
-#       - x64/Release/cpp-sample_2017.exe
+build_vs2017_windows_x64:
+  stage: build
+  image: registry.lanni/microsoft/win10-vc-build-tools-2017:latest
+  script:
+    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
+  tags:
+    - docker-windows
+  artifacts:
+    untracked: false
+    paths:
+      - dist/x64/*.dll
 
 # build_vs2017_windows_x86:
 #   stage: build
