@@ -69,19 +69,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)BINd\</OutDir>
+    <OutDir>$(SolutionDir)dist\x86d\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)BIN64d\</OutDir>
+    <OutDir>$(SolutionDir)dist\x64d\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)BIN\</OutDir>
+    <OutDir>$(SolutionDir)dist\x86\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)BIN64\</OutDir>
+    <OutDir>$(SolutionDir)dist\x64\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -97,7 +97,7 @@
       <StackReserveSize>4194304 </StackReserveSize>
     </Link>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)COPY_TO_BIN\*.* $(SolutionDir)BIN\</Command>
+      <Command>copy $(SolutionDir)\COPY_TO_BIN\v14\x32\*.* $(SolutionDir)dist\x86d\</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -114,7 +114,7 @@
       <StackReserveSize>4194304 </StackReserveSize>
     </Link>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)COPY_TO_BIN\*.* $(SolutionDir)BIN\</Command>
+      <Command>copy $(SolutionDir)\COPY_TO_BIN\v14\x64\*.* $(SolutionDir)dist\x64d\</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -133,6 +133,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>libzmq-v140-mt-4_3_4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>copy $(SolutionDir)\COPY_TO_BIN\v14\x32\*.* $(SolutionDir)dist\x86\</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -150,6 +153,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>libzmq-v140-mt-4_3_4_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>copy $(SolutionDir)\COPY_TO_BIN\v14\x64\*.* $(SolutionDir)dist\x64\</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
