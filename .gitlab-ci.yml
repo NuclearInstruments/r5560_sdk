@@ -17,8 +17,12 @@ build_vs2022_windows:
   script:
     - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
     - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x64
-    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x86
-    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x86
+    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=Win32
+    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Debug -p:Platform=Win32
+    - Copy-Item ".\R5560_SDKLib\R5560_SDKLib.h" -Destination "dist\x64"
+    - Copy-Item ".\R5560_SDKLib\R5560_SDKLib.h" -Destination "dist\x64d"
+    - Copy-Item ".\R5560_SDKLib\R5560_SDKLib.h" -Destination "dist\x86"
+    - Copy-Item ".\R5560_SDKLib\R5560_SDKLib.h" -Destination "dist\x86d"
   tags:
     - docker-windows
   artifacts:
@@ -28,6 +32,14 @@ build_vs2022_windows:
       - dist/x64d/*.dll
       - dist/x86/*.dll
       - dist/x86d/*.dll
+      - dist/x64/*.lib
+      - dist/x64d/*.lib
+      - dist/x86/*.lib
+      - dist/x86d/*.lib
+      - dist/x64/*.h
+      - dist/x64d/*.h
+      - dist/x86/*.h
+      - dist/x86d/*.h      
 
 # build_vs2022_windows_x86:
 #   stage: build
