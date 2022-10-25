@@ -11,18 +11,23 @@ build_linux_x64:
     paths:
       - linux/*.so*
 
-# build_vs2022_windows_x64:
-#   stage: build
-#   image: registry.lanni/microsoft/win10-vc-build-tools-2022:latest
-#   script:
-#     - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
-#   tags:
-#     - docker-windows
-#   artifacts:
-#     untracked: false
-#     expire_in: "30 days"
-#     paths:
-#       - x64/Release/cpp-sample_2022.exe
+build_vs2022_windows:
+  stage: build
+  image: registry.lanni/microsoft/win10-vc-build-tools-2022:latest
+  script:
+    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
+    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x64
+    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Release -p:Platform=x86
+    - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Debug -p:Platform=x86
+  tags:
+    - docker-windows
+  artifacts:
+    untracked: false
+    paths:
+      - dist/x64/*.dll
+      - dist/x64d/*.dll
+      - dist/x86/*.dll
+      - dist/x86d/*.dll
 
 # build_vs2022_windows_x86:
 #   stage: build
@@ -33,21 +38,20 @@ build_linux_x64:
 #     - docker-windows
 #   artifacts:
 #     untracked: false
-#     expire_in: "30 days"
 #     paths:
-#       - Release/cpp-sample_2022.exe
+#       - dist/x86/*.dll
 
-build_vs2017_windows_x64:
-  stage: build
-  image: registry.lanni/microsoft/win10-vc-build-tools-2017:latest
-  script:
-    - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
-  tags:
-    - docker-windows
-  artifacts:
-    untracked: false
-    paths:
-      - dist/x64/*.dll
+# build_vs2017_windows_x64:
+#   stage: build
+#   image: registry.lanni/microsoft/win10-vc-build-tools-2017:latest
+#   script:
+#     - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
+#   tags:
+#     - docker-windows
+#   artifacts:
+#     untracked: false
+#     paths:
+#       - dist/x64/*.dll
 
 # build_vs2017_windows_x86:
 #   stage: build
