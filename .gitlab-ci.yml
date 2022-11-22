@@ -61,7 +61,7 @@ build_vs2022_windows:
 
 upload_gitlab:
   stage: upload
-  image: registry.lanni/release-manager:latest
+  image: registry.lanni/apps/release-manager:latest
   dependencies: 
     - build_vs2022_windows
     - build_linux_x64
@@ -82,7 +82,7 @@ upload_gitlab:
 
 release_nirelease:
   stage: release
-  image: registry.lanni/release-manager:latest
+  image: registry.lanni/apps/release-manager:latest
   dependencies: 
     - build_vs2022_windows
     - build_linux_x64  
@@ -99,7 +99,7 @@ release_nirelease:
 
 release_gitlab:
   stage: release
-  image: registry.lanni/release-manager:latest
+  image: registry.lanni/apps/release-manager:latest
   script:
     - echo "Generate diff from last release for the latest release"
     - if [ -f CHANGELOG.md ]; then LATEST_TAG=`git tag --sort=-creatordate | head -2 | tail -n 1`; fi
