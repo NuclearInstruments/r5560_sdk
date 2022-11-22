@@ -1,5 +1,15 @@
 stages:
   - build
+  - upload
+  - release
+
+variables:
+
+  WINDOWS_WIN3264_BINARY: "r5560-sdk-win-32-64-${CI_COMMIT_TAG}"
+  WINDOWS_WIN3264_EXTENSION: "zip"
+  LINUX_AMD64_BINARY: "r5560-sdk-linux-amd64-${CI_COMMIT_TAG}"
+  LINUX_AMD64_EXTENSION: "tar.gz"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/r5560-sdk/${CI_COMMIT_TAG}"
 
 build_linux_x64:
   stage: build
@@ -8,8 +18,12 @@ build_linux_x64:
     - make
   artifacts:
     untracked: false
+    name: linux
     paths:
       - linux/*.so*
+    expire_in: 1 week
+  rules:
+    - if: $CI_COMMIT_TAG
 
 build_vs2022_windows:
   stage: build
@@ -27,6 +41,7 @@ build_vs2022_windows:
     - docker-windows
   artifacts:
     untracked: false
+    name: windows
     paths:
       - dist/x64/*.dll
       - dist/x64d/*.dll
@@ -39,41 +54,52 @@ build_vs2022_windows:
       - dist/x64/*.h
       - dist/x64d/*.h
       - dist/x86/*.h
-      - dist/x86d/*.h      
+      - dist/x86d/*.h     
+    expire_in: 1 week 
+  rules:
+    - if: $CI_COMMIT_TAG
 
-# build_vs2022_windows_x86:
-#   stage: build
-#   image: registry.lanni/microsoft/win10-vc-build-tools-2022:latest
-#   script:
-#     - MSBuild cpp-sample_2022.sln -t:Rebuild -p:Configuration=Release -p:Platform=x86
-#   tags:
-#     - docker-windows
-#   artifacts:
-#     untracked: false
-#     paths:
-#       - dist/x86/*.dll
+upload_gitlab:
+  stage: upload
+  image: registry.lanni/release-manager:latest
+  dependencies: 
+    - build_vs2022_windows
+    - build_linux_x64
+  before_script:
+    - mv dist windows
+  script:
+    - build_path="$PWD"
+    - cd $build_path/windows && zip -r ${WINDOWS_WIN3264_BINARY}.${WINDOWS_WIN3264_EXTENSION} .
+    - cd $build_path/linux && touch ${LINUX_AMD64_BINARY}.${LINUX_AMD64_EXTENSION} && tar --exclude=${LINUX_AMD64_BINARY}.${LINUX_AMD64_EXTENSION} -czvf ${LINUX_AMD64_BINARY}.${LINUX_AMD64_EXTENSION} .
+    - | 
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file $build_path/windows/${WINDOWS_WIN3264_BINARY}.${WINDOWS_WIN3264_EXTENSION} ${PACKAGE_REGISTRY_URL}/${WINDOWS_WIN3264_BINARY}.${WINDOWS_WIN3264_EXTENSION}
+    - |
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file $build_path/linux/${LINUX_AMD64_BINARY}.${LINUX_AMD64_EXTENSION} ${PACKAGE_REGISTRY_URL}/${LINUX_AMD64_BINARY}.${LINUX_AMD64_EXTENSION}
 
-# build_vs2017_windows_x64:
-#   stage: build
-#   image: registry.lanni/microsoft/win10-vc-build-tools-2017:latest
-#   script:
-#     - MSBuild R5560_SDKApp.sln -t:Rebuild -p:Configuration=Release -p:Platform=x64
-#   tags:
-#     - docker-windows
-#   artifacts:
-#     untracked: false
-#     paths:
-#       - dist/x64/*.dll
+  rules:
+    - if: $CI_COMMIT_TAG
+  when: on_success
 
-# build_vs2017_windows_x86:
-#   stage: build
-#   image: registry.lanni/microsoft/win10-vc-build-tools-2017:latest
-#   script:
-#     - MSBuild cpp-sample_2017.sln -t:Rebuild -p:Configuration=Release -p:Platform=x86
-#   tags:
-#     - docker-windows
-#   artifacts:
-#     untracked: false
-#     expire_in: "30 days"
-#     paths:
-#       - Release/cpp-sample_2017.exe
+release_gitlab:
+  stage: release
+  image: registry.lanni/release-manager:latest
+  script:
+    - echo "Generate diff from last release for the latest release"
+    - if [ -f CHANGELOG.md ]; then LATEST_TAG=`git tag --sort=-creatordate | head -2 | tail -n 1`; fi
+    - if [ -f CHANGELOG.md ]; then git diff $LATEST_TAG ./CHANGELOG.md | tail -n +6 | sed -n "/^+/p" | sed -e "s/^+//" > ./latestChanges.md; fi
+    - if [ ! -f CHANGELOG.md ]; then touch latestChanges.md; fi
+    - echo "Creating release with the following changelog changes:"
+    - cat latestChanges.md
+  rules:
+    - if: $CI_COMMIT_TAG
+  when: on_success
+
+  release:
+    tag_name: '$CI_COMMIT_TAG'
+    description: "./latestChanges.md"
+    assets:
+      links:
+        - name: 'Windows $CI_COMMIT_TAG'
+          url: '${PACKAGE_REGISTRY_URL}/${WINDOWS_WIN3264_BINARY}.${WINDOWS_WIN3264_EXTENSION}'
+        - name: 'Linux $CI_COMMIT_TAG'
+          url: '${PACKAGE_REGISTRY_URL}/${LINUX_AMD64_BINARY}.${LINUX_AMD64_EXTENSION}'
