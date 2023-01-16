@@ -1,0 +1,318 @@
+R5560_SDKLib.lo: ../../R5560_SDKLib/R5560_SDKLib.cpp \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdc-predef.h \
+ ../../R5560_SDKLib/stdafx.h ../../R5560_SDKLib/zmq.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/errno.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/features.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/cdefs.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/wordsize.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/wordsize-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/long-double.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/long-double-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/gnu/stubs.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/gnu/stubs-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/gnu/stubs-hard.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/errno.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/linux/errno.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm/errno.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/errno.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/errno-base.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/error_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/x86_64-petalinux-linux/usr/lib/arm-xilinx-linux-gnueabi/gcc/arm-xilinx-linux-gnueabi/8.2.0/include/stddef.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdio.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/libc-header-start.h \
+ /home/utente/projects/DT5560/SDK/sysroots/x86_64-petalinux-linux/usr/lib/arm-xilinx-linux-gnueabi/gcc/arm-xilinx-linux-gnueabi/8.2.0/include/stdarg.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/typesizes.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/typesizes-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__fpos_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__mbstate_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__fpos64_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__FILE.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/FILE.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_FILE.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/cookie_io_functions_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdio_lim.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/sys_errlist.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdio.h \
+ /home/utente/projects/DT5560/SDK/sysroots/x86_64-petalinux-linux/usr/lib/arm-xilinx-linux-gnueabi/gcc/arm-xilinx-linux-gnueabi/8.2.0/include/stdint.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdint.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/wchar.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdint-intn.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdint-uintn.h \
+ ../../R5560_SDKLib/R5560_SDKLib.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/stdlib.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/cstdlib \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/arm-xilinx-linux-gnueabi/bits/c++config.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/arm-xilinx-linux-gnueabi/bits/os_defines.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/arm-xilinx-linux-gnueabi/bits/cpu_defines.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdlib.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/waitflags.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/waitstatus.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/floatn.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/floatn-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/floatn-common.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/locale_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__locale_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/types.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/clock_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/clockid_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/time_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/timer_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/endian.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/endian.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/endian-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/byteswap.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/uintn-identity.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/select.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/select.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/sigset_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__sigset_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_timeval.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_timespec.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/thread-shared-types.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes-arch.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes-arch-32.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/alloca.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdlib-bsearch.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdlib-float.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/bits/std_abs.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/socket.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_iovec.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/socket.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/socket_type.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/sockaddr.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm/socket.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/socket.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm/sockios.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/sockios.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_osockaddr.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/arpa/inet.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/netinet/in.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/in.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/netdb.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/rpc/netdb.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/sigevent_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__sigval_t.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/netdb.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/unistd.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/posix_opt.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/environments.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/confname.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/getopt_posix.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/getopt_core.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/string.h \
+ /home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/strings.h
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdc-predef.h:
+
+../../R5560_SDKLib/stdafx.h:
+
+../../R5560_SDKLib/zmq.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/errno.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/features.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/cdefs.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/wordsize.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/wordsize-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/long-double.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/long-double-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/gnu/stubs.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/gnu/stubs-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/gnu/stubs-hard.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/errno.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/linux/errno.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm/errno.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/errno.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/errno-base.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/error_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/x86_64-petalinux-linux/usr/lib/arm-xilinx-linux-gnueabi/gcc/arm-xilinx-linux-gnueabi/8.2.0/include/stddef.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdio.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/libc-header-start.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/x86_64-petalinux-linux/usr/lib/arm-xilinx-linux-gnueabi/gcc/arm-xilinx-linux-gnueabi/8.2.0/include/stdarg.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/typesizes.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/typesizes-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__fpos_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__mbstate_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__fpos64_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__FILE.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/FILE.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_FILE.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/cookie_io_functions_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdio_lim.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/sys_errlist.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdio.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/x86_64-petalinux-linux/usr/lib/arm-xilinx-linux-gnueabi/gcc/arm-xilinx-linux-gnueabi/8.2.0/include/stdint.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdint.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/wchar.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdint-intn.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdint-uintn.h:
+
+../../R5560_SDKLib/R5560_SDKLib.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/stdlib.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/cstdlib:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/arm-xilinx-linux-gnueabi/bits/c++config.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/arm-xilinx-linux-gnueabi/bits/os_defines.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/arm-xilinx-linux-gnueabi/bits/cpu_defines.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/stdlib.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/waitflags.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/waitstatus.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/floatn.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/floatn-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/floatn-common.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/locale_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__locale_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/types.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/clock_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/clockid_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/time_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/timer_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/endian.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/endian.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/endian-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/byteswap.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/uintn-identity.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/select.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/select.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/sigset_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__sigset_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_timeval.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_timespec.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/thread-shared-types.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes-arch.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/pthreadtypes-arch-32.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/alloca.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdlib-bsearch.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/stdlib-float.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/c++/8.2.0/bits/std_abs.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/sys/socket.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_iovec.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/socket.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/socket_type.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/sockaddr.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm/socket.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/socket.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm/sockios.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/asm-generic/sockios.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/struct_osockaddr.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/arpa/inet.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/netinet/in.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/in.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/netdb.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/rpc/netdb.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/sigevent_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/types/__sigval_t.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/netdb.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/unistd.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/posix_opt.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/environments.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/confname.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/getopt_posix.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/bits/getopt_core.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/string.h:
+
+/home/utente/projects/DT5560/SDK/sysroots/cortexa9t2hf-neon-xilinx-linux-gnueabi/usr/include/strings.h:
