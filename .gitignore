@@ -279,5 +279,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 !COPY_TO_BIN/
-autom4te.cache/
-build_x64/
+autom4te.cache/*
+build_*
+*.deb

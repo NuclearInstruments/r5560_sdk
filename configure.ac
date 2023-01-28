@@ -1,7 +1,7 @@
 # this is example-file: configure.ac
-m4_define([v_maj], [m4_esyscmd_s([echo $V_MAJ])])
-m4_define([v_min], [m4_esyscmd_s([echo $V_MIN])])
-m4_define([v_mic], [m4_esyscmd_s([echo $V_MIC])])
+m4_define([v_maj], [m4_esyscmd_s([cat VERSION | cut -d '.' -f 1])])
+m4_define([v_min], [m4_esyscmd_s([cat VERSION | cut -d '.' -f 2])])
+m4_define([v_mic], [m4_esyscmd_s([cat VERSION | cut -d '.' -f 3])])
 m4_define([project_version], [v_maj.v_min.v_mic])
  
 m4_define([lt_cur], m4_eval(v_maj + v_min))
