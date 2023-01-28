@@ -19,7 +19,7 @@ build_all_arch:
       - build_i386/output/*
       - build_arm64/output/*
       - build_armhf/output/*
-      - *.deb
+      - ./*.deb
 # build_vs2022_windows_x64:
 #   stage: build
 #   image: registry.lanni/microsoft/win10-vc-build-tools-2022:latest
