@@ -1,16 +1,25 @@
 stages:
   - build
 
-build_linux_x64:
+
+build_all_arch:
   stage: build
-  image: registry.lanni/nibuntu/sdk-20.04:latest
+  image: registry.lanni/nibuntu/build-20.04
   script:
-    - make
+    - echo password | sudo -S apt install libzmq3-dev
+    - echo password | sudo -S apt install libzmq3-dev:i386
+    - echo password | sudo -S apt install libzmq3-dev:arm64
+    - echo password | sudo -S apt install libzmq3-dev:armhf
+    - compile_all_architecures.sh
+    - build_debs.sh
   artifacts:
     untracked: false
     paths:
-      - linux/*.so*
-
+      - build_x64/output/*
+      - build_i386/output/*
+      - build_arm64/output/*
+      - build_armhf/output/*
+      - *.deb
 # build_vs2022_windows_x64:
 #   stage: build
 #   image: registry.lanni/microsoft/win10-vc-build-tools-2022:latest
