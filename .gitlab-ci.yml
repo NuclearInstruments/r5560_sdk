@@ -7,10 +7,10 @@ build_all_arch:
   image: registry.lanni/nibuntu/build-20.04
   script:
     - apt update
-    - apt install libzmq3-dev
-    - apt install libzmq3-dev:i386
-    - apt install libzmq3-dev:arm64
-    - apt install libzmq3-dev:armhf
+    - apt install -y libzmq3-dev
+    - apt install -y libzmq3-dev:i386
+    - apt install -y libzmq3-dev:arm64
+    - apt install -y libzmq3-dev:armhf
     - compile_all_architecures.sh
     - build_debs.sh
   artifacts:
