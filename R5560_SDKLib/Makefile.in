@@ -319,6 +319,7 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
+runstatedir = @runstatedir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
@@ -335,7 +336,7 @@ AUTOMAKE_OPTIONS = subdir-objects
 # THE LIBRARIES TO BUILD
 ###############################################################################
 lib_LTLIBRARIES = libr5560.la
-libr5560_la_LDFLAGS = -version-info @VERSION_INFO@ -lzmq
+libr5560_la_LDFLAGS = -version-info @VERSION_INFO@ -lzmq -lpthread
 
 # where to install the headers on the system
 libr5560_ladir = $(includedir)/r5560

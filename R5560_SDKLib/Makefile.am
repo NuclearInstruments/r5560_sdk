@@ -10,7 +10,7 @@ AM_CXXFLAGS = -I$(top_srcdir)/R5560_SDKLib @AM_CXXFLAGS@
 
 lib_LTLIBRARIES = libr5560.la
 
-libr5560_la_LDFLAGS = -version-info @VERSION_INFO@ -lzmq
+libr5560_la_LDFLAGS = -version-info @VERSION_INFO@ -lzmq -lpthread
 
 # where to install the headers on the system
 libr5560_ladir = $(includedir)/r5560
