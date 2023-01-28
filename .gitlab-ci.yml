@@ -6,9 +6,6 @@ build_all_arch:
   stage: build
   image: registry.lanni/nibuntu/build-20.04
   script:
-    - dpkg --add-architecture i386
-    - dpkg --add-architecture arm64
-    - dpkg --add-architecture armhf
     - apt update
     - apt install -y libzmq3-dev
     - apt install -y libzmq3-dev:i386
