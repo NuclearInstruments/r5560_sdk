@@ -26,7 +26,7 @@ build_zynq:
   stage: build
   image: registry.lanni/nibuntu/build-20.04
   script:
-    - build_for_zynq.sh
+    - compile_for_zynq.sh
   artifacts:
     untracked: false
     paths:
