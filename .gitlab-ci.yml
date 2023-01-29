@@ -24,7 +24,7 @@ build_all_arch:
 
 build_zynq:
   stage: build
-  image: registry.lanni/nibuntu/build-20.04
+  image: registry.lanni/nibuntu/console-20.04:latest
   script:
     - ./compile_for_zynq.sh
   artifacts:
