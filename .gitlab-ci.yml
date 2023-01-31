@@ -12,7 +12,7 @@ build_all_arch:
     - apt install -y libzmq3-dev:arm64
     - apt install -y libzmq3-dev:armhf
     - compile_all_architecures.sh
-    - build_debs.sh
+    #- build_debs.sh
   artifacts:
     untracked: false
     paths:
