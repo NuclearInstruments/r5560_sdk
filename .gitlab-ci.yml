@@ -18,7 +18,7 @@ build_vs2022_windows:
     - docker-windows
   artifacts:
     untracked: false
-    name: windows
+    name: R5560SDK_windows_$CI_COMMIT_TAG
     paths:
       - dist/x64/*.dll
       - dist/x64d/*.dll
@@ -45,9 +45,12 @@ build_zynq:
     - ./compile_for_zynq.sh
   artifacts:
     untracked: false
-    name: windows
+    name: libr5560_zynq_$CI_COMMIT_TAG
     paths:
       - build_zynq/libr5560-zynq.tar.gz
+    expire_in: 1 week 
+  rules:
+    - if: $CI_COMMIT_TAG
 
 build_all_arch_focal:
   stage: build
@@ -80,6 +83,7 @@ build_all_arch_focal:
 
   artifacts:
     untracked: false
+    name: libr5560_$CI_COMMIT_TAG-$LINUXRELEASE
     paths:
     - libr5560-lib-$LINUXRELEASE.tar.gz
     - libr5560-deb-$LINUXRELEASE.tar.gz
