@@ -54,9 +54,16 @@ build_zynq:
 
 build_all_arch_focal:
   stage: build
-  image: registry.lanni/nibuntu/build-20.04:latest
+  parallel:
+      matrix:
+        - LINUXRELEASE: ["bionic", "focal", "jammy"]
   variables:
-    LINUXRELEASE: "focal"
+      DOCKER_IMAGE_VERSION: {"bionic": "18.04", "focal": "20.04", "jammy": "22.04"}
+  
+  image: registry.lanni/nibuntu/build-$DOCKER_IMAGE_VERSION:latest
+  #image: registry.lanni/nibuntu/build-20.04:latest
+  #variables:
+  #  LINUXRELEASE: "focal"
   script:
     - apt update
     - apt install -y libzmq3-dev

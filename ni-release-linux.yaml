@@ -46,8 +46,10 @@ compression: tar.gz
 # Files in release
 #   relative path will be removed
 files:
+  - libr5560-lib-bionic.tar.gz
+  - libr5560-deb-bionic.tar.gz
   - libr5560-lib-focal.tar.gz
   - libr5560-deb-focal.tar.gz
-
-
+  - libr5560-lib-jammy.tar.gz
+  - libr5560-deb-jammy.tar.gz
 
