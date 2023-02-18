@@ -56,15 +56,6 @@ build_all_arch:
       - build_armhf/output/*
       - ./*.deb
 
-build_zynq:
-  stage: build
-  image: registry.lanni/nibuntu/console-20.04:latest
-  script:
-    - ./compile_for_zynq.sh
-  artifacts:
-    untracked: false
-    paths:
-      - build_zynq/libr5560-zynq.tar.gz
 
 build_all_arch_focal:
   stage: build
@@ -72,6 +63,11 @@ build_all_arch_focal:
   variables:
     LINUXRELEASE: "focal"
   script:
+    - apt update
+    - apt install -y libzmq3-dev
+    - apt install -y libzmq3-dev:i386
+    - apt install -y libzmq3-dev:arm64
+    - apt install -y libzmq3-dev:armhf
     - echo $CI_COMMIT_TAG>VERSION
     - ./compile_all_architecures.sh
     - ./compile_deb.sh
