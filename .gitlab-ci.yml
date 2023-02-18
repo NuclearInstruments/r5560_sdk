@@ -65,7 +65,7 @@ build_all_arch_focal:
   #variables:
   #  LINUXRELEASE: "focal"
   script:
-    - export $LINUXRELEASE=$(echo "$DOCKER_IMAGE_MAP" | awk -F, -v linuxrelease="$DOCKER_IMAGE" '{for(i=1;i<=NF;i++) if ($i ~ linuxrelease) print $i}' | cut -d'=' -f2)
+    - export LINUXRELEASE=$(echo "$DOCKER_IMAGE_MAP" | awk -F, -v linuxrelease="$DOCKER_IMAGE" '{for(i=1;i<=NF;i++) if ($i ~ linuxrelease) print $i}' | cut -d'=' -f2)
     - echo "Build on $DOCKER_IMAGE"
     - echo "Build for release  $LINUXRELEASE" 
     - apt update
