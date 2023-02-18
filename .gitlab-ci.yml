@@ -45,6 +45,7 @@ build_zynq:
     - ./compile_for_zynq.sh
   artifacts:
     untracked: false
+    name: windows
     paths:
       - build_zynq/libr5560-zynq.tar.gz
 
