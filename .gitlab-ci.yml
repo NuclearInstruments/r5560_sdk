@@ -87,16 +87,16 @@ build_ubuntu_all_arch:
     - mv libr5560-arm64.tar.gz tars/libr5560-$CI_COMMIT_TAG-$LINUXRELEASE-arm64.tar.gz
     - mv libr5560-armhf.tar.gz tars/libr5560-$CI_COMMIT_TAG-$LINUXRELEASE-armhf.tar.gz
     - cd tars
-    - tar zcvf ../libr5560-lib-$DOCKER_IMAGE.tar.gz .
+    - tar zcvf ../libr5560-lib-ubuntu-$DOCKER_IMAGE.tar.gz .
     - cd ../debs
-    - tar zcvf ../libr5560-deb-$DOCKER_IMAGE.tar.gz .
+    - tar zcvf ../libr5560-deb-ubuntu$DOCKER_IMAGE.tar.gz .
 
   artifacts:
     untracked: false
-    name: libr5560_$CI_COMMIT_TAG-$DOCKER_IMAGE
+    name: libr5560_$CI_COMMIT_TAG-ubuntu-$DOCKER_IMAGE
     paths:
-    - libr5560-lib-$DOCKER_IMAGE.tar.gz
-
+      - libr5560-lib-ubuntu-$DOCKER_IMAGE.tar.gz
+      - libr5560-deb-ubuntu-$DOCKER_IMAGE.tar.gz
   rules:
     - if: $CI_COMMIT_TAG
 
