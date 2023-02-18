@@ -52,7 +52,7 @@ build_zynq:
   rules:
     - if: $CI_COMMIT_TAG
 
-build_all_arch_focal:
+build_ubuntu_all_arch:
   stage: build
   parallel:
       matrix:
@@ -87,16 +87,15 @@ build_all_arch_focal:
     - mv libr5560-arm64.tar.gz tars/libr5560-$CI_COMMIT_TAG-$LINUXRELEASE-arm64.tar.gz
     - mv libr5560-armhf.tar.gz tars/libr5560-$CI_COMMIT_TAG-$LINUXRELEASE-armhf.tar.gz
     - cd tars
-    - tar zcvf ../libr5560-lib-$LINUXRELEASE.tar.gz .
+    - tar zcvf ../libr5560-lib-$DOCKER_IMAGE.tar.gz .
     - cd ../debs
-    - tar zcvf ../libr5560-deb-$LINUXRELEASE.tar.gz .
+    - tar zcvf ../libr5560-deb-$DOCKER_IMAGE.tar.gz .
 
   artifacts:
     untracked: false
-    name: libr5560_$CI_COMMIT_TAG-$LINUXRELEASE
+    name: libr5560_$CI_COMMIT_TAG-$DOCKER_IMAGE
     paths:
-    - libr5560-lib-$LINUXRELEASE.tar.gz
-    - libr5560-deb-$LINUXRELEASE.tar.gz
+    - libr5560-lib-$DOCKER_IMAGE.tar.gz
 
   rules:
     - if: $CI_COMMIT_TAG
@@ -107,7 +106,7 @@ nirelease:
   dependencies: 
     - build_vs2022_windows
     - build_zynq  
-    - build_all_arch_focal
+    - build_ubuntu_all_arch
   script:
     - mv dist windows
     - zip -r windows_x86_x64.zip windows
