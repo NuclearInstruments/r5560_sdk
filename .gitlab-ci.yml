@@ -1,6 +1,7 @@
 stages:
   - build
   - release
+  - push
 
 build_vs2022_windows:
   stage: build
@@ -126,4 +127,17 @@ nirelease:
   when: on_success
 
 
+push_github:
+  stage: push
+ 
+
+  image: registry.lanni/nibuntu/services-20.04:latest
+
+  script:
+    - git config --global --add safe.directory '*'
+    - git config remote.github_cicd.url >&- || git remote add github_cicd https://NuclearInstruments:${GITHUB_TOKEN}@github.com/NuclearInstruments/r5560_sdk
+    - git push -u github_cicd HEAD:master --force
+
+  rules:
+    - if: $CI_COMMIT_TAG
 
