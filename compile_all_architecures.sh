@@ -18,8 +18,8 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-x64.tar.gz .
 cd ../..
-apt remove -y libzmq3-dev
-apt autoremove -y
+apt remove -y libzmq3-dev libkrb5-dev
+
 
 #compile x86 
 apt install -y libzmq3-dev:i386
@@ -31,8 +31,8 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-i386.tar.gz .
 cd ../..
-apt remove -y libzmq3-dev:i386
-apt autoremove -y
+apt remove -y libzmq3-dev:i386 libkrb5-dev:i386
+
 
 #compile arm64
 apt install -y libzmq3-dev:arm64
@@ -46,8 +46,7 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-arm64.tar.gz .
 cd ../..
-apt remove -y libzmq3-dev:arm64
-apt autoremove -y
+apt remove -y libzmq3-dev:arm64 libkrb5-dev:arm64
 
 #compile armhf
 apt install -y libzmq3-dev:armhf
@@ -61,5 +60,5 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-armhf.tar.gz .
 cd ../..
-apt remove -y libzmq3-dev:armhf
-apt autoremove -y
+apt remove -y libzmq3-dev:armhf libkrb5-dev:arm64
+
