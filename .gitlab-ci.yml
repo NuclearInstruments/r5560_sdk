@@ -85,7 +85,7 @@ build_ubuntu_all_arch:
     - cd tars
     - tar zcvf ../libr5560-lib-ubuntu-$DOCKER_IMAGE.tar.gz .
     - cd ../debs
-    - tar zcvf ../libr5560-deb-ubuntu$DOCKER_IMAGE.tar.gz .
+    - tar zcvf ../libr5560-deb-ubuntu-$DOCKER_IMAGE.tar.gz .
 
   artifacts:
     untracked: false
