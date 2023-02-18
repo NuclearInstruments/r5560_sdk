@@ -1,10 +1,7 @@
 // R5560_SDKLib.cpp: definisce le funzioni esportate per l'applicazione DLL.
 //
 
-
-	#include "stdafx.h"
-
-
+#include "stdafx.h"
 #include "zmq.h"
 #include "R5560_SDKLib.h"
 
@@ -73,7 +70,7 @@ R5560_SDKLIB_API int R5560_ConnectTCP(char *ipaddress, uint32_t port, tR5560_Han
 		sockQuit();
 		return -1;
 	}
-	// COSTRUZIONE DELL’INDIRIZZO DEL SERVER
+	// COSTRUZIONE DELLï¿½INDIRIZZO DEL SERVER
 	struct sockaddr_in sad;
 	memset(&sad, 0, sizeof(sad));
 	sad.sin_family = AF_INET;
