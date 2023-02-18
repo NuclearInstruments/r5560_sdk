@@ -56,15 +56,18 @@ build_all_arch_focal:
   stage: build
   parallel:
       matrix:
-        - LINUXRELEASE: ["bionic", "focal", "jammy"]
+        - DOCKER_IMAGE: ["18.04", "20.04", "22.04"]
   variables:
-      DOCKER_IMAGE_VERSION: {"bionic": "18.04", "focal": "20.04", "jammy": "22.04"}
+      DOCKER_IMAGE_MAP: "18.04=bionic,20.04=focal,22.04=jammy"
   
-  image: registry.lanni/nibuntu/build-$DOCKER_IMAGE_VERSION:latest
+  image: registry.lanni/nibuntu/build-$DOCKER_IMAGE:latest
   #image: registry.lanni/nibuntu/build-20.04:latest
   #variables:
   #  LINUXRELEASE: "focal"
   script:
+    - export $LINUXRELEASE=$(echo "$DOCKER_IMAGE_MAP" | awk -F, -v linuxrelease="$DOCKER_IMAGE" '{for(i=1;i<=NF;i++) if ($i ~ linuxrelease) print $i}' | cut -d'=' -f2)
+    - echo "Build on $DOCKER_IMAGE"
+    - echo "Build for release  $LINUXRELEASE" 
     - apt update
     - apt install -y libzmq3-dev
     - apt install -y libzmq3-dev:i386
