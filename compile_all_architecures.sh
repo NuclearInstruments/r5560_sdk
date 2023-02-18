@@ -9,6 +9,7 @@ autoreconf -if
 BUILD="$(echo $MACHTYPE | sed "s/$(echo $MACHTYPE | cut -d- -f2)/cross/")"
 
 #compile x64 (native)
+apt install -y libzmq3-dev
 rm -rf build_x64
 mkdir -p build_x64
 cd build_x64
@@ -17,9 +18,11 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-x64.tar.gz .
 cd ../..
-
+apt remove -y libzmq3-dev
+apt autoremove -y
 
 #compile x86 
+apt install -y libzmq3-dev:i386
 rm -rf build_i386
 mkdir -p build_i386
 cd build_i386
@@ -28,9 +31,11 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-i386.tar.gz .
 cd ../..
-
+apt remove -y libzmq3-dev:i386
+apt autoremove -y
 
 #compile arm64
+apt install -y libzmq3-dev:arm64
 rm -rf build_arm64
 mkdir -p build_arm64
 cd build_arm64
@@ -41,8 +46,11 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-arm64.tar.gz .
 cd ../..
+apt remove -y libzmq3-dev:arm64
+apt autoremove -y
 
 #compile armhf
+apt install -y libzmq3-dev:armhf
 rm -rf build_armhf
 mkdir -p build_armhf
 cd build_armhf
@@ -53,3 +61,5 @@ make -j16 && make install
 cd output
 tar zcvf ../../libr5560-armhf.tar.gz .
 cd ../..
+apt remove -y libzmq3-dev:armhf
+apt autoremove -y
