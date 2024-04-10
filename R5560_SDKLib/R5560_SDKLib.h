@@ -173,12 +173,63 @@ R5560_SDKLIB_API int NI_ReadFifo(uint32_t *data, uint32_t count,
 										uint32_t address, uint32_t fifo_status_address, BUS_MODE bus_mode, 
 										uint32_t timeout_ms, tR5560_Handle *handle, 
 										uint32_t *read_data);
+
+
+/**
+ * @brief Write a register
+ * @param data         			value to be written in the register
+ * @param address 		    	address of the register
+ * @param handle            	Handle allocated as tR5560_Handle handle
+ * 
+ * @return                  	int, 0 no errors  
+ */										
 R5560_SDKLIB_API int NI_WriteReg(uint32_t data, uint32_t address, tR5560_Handle *handle);
+
+/**
+ * @brief Read a register
+ * @param data         			pointer to an uint32_t to store the value of the register
+ * @param address 		    	address of the register
+ * @param handle            	Handle allocated as tR5560_Handle handle
+ * 
+ * @return                  	int, 0 no errors  
+ */		
 R5560_SDKLIB_API int NI_ReadReg(uint32_t *data, uint32_t address, tR5560_Handle *handle);
+
+
+/**
+ * @brief Read data array from the device in an uint32 vector using DMA
+ * @param dma_channel       id of the dma channel. for R5560 set it to 0. only one channel is available
+ * @param buffer         	pointer to a preallocated char buffer to output read data
+ * @param max_len 		    size of the buffer in byte
+ * @param valid_data 		number of byte transfered
+ * @param handle            Handle allocated as tR5560_Handle handle
+ * 
+ * @return                  int, 0 no errors  
+ */
 R5560_SDKLIB_API int NI_DMA_Read(uint32_t dma_channel, char *buffer, uint32_t max_len, uint32_t *valid_data, tR5560_Handle *handle);
+
+/**
+ * @brief Read data array from the device in an uint32 vector using DMA
+ * @param dma_channel       id of the dma channel. for R5560 set it to 0. only one channel is availabl
+ * @param blocking         	set it to 1 to make reading blocking
+ * @param timeout 		    timeout in ms of in blocking mode
+ * @param buffer_length 	size of the internal buffer. Set it to 64 mbyte for example
+ * @param handle            Handle allocated as tR5560_Handle handle
+ * 
+ * @return                  int, 0 no errors  
+ */
 R5560_SDKLIB_API int NI_DMA_SetOptions(uint32_t dma_channel, int blocking, int timeout, int buffer_length, tR5560_Handle *handle);
+
+/**
+ * @brief Allocate an handle of type tR5560_Handle
+ * 
+ * @return                  handle tR5560_Handle, null if error 
+ */
 R5560_SDKLIB_API void * R5560_HandleAllocator();
 
+
+//Following API are used to get information from digitizer and configure 
+//the analog front-end
 R5560_SDKLIB_API int NI_InternalWriteReg(uint32_t data, uint32_t address, tR5560_Handle *handle);
 R5560_SDKLIB_API int NI_InternalReadReg(uint32_t *data, uint32_t address, tR5560_Handle *handle);
 
