@@ -46,10 +46,7 @@ compression: tar.gz
 # Files in release
 #   relative path will be removed
 files:
-  - libr5560-lib-ubuntu-18.04.tar.gz
-  - libr5560-deb-ubuntu-18.04.tar.gz
-  - libr5560-lib-ubuntu-20.04.tar.gz
-  - libr5560-deb-ubuntu-20.04.tar.gz
-  - libr5560-lib-ubuntu-22.04.tar.gz
-  - libr5560-deb-ubuntu-22.04.tar.gz
+  - libr5560-lib-ubuntu.tar.gz
+  - libr5560-deb-ubuntu.tar.gz
+
 
