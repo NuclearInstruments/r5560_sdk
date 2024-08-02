@@ -51,6 +51,7 @@ if [ "$ARCHITECTURE" = "x64" ]; then
     --description "Nuclear Instruments libR5560" \
     --url "https://www.sci-compiler.com/" \
     --maintainer "Andrea Abba <abba@nuclearinstruments.eu>" \
+    -d libzmq3-dev \
     .    
     tar zcvf ../../tars/libr5560-$DOCKER_IMAGE-x64.tar.gz .
     cd ../..
@@ -73,6 +74,7 @@ elif [ "$ARCHITECTURE" = "i386" ]; then
     --description "Nuclear Instruments libR5560" \
     --url "https://www.sci-compiler.com/" \
     --maintainer "Andrea Abba <abba@nuclearinstruments.eu>" \
+    -d libzmq3-dev \
     .    
     tar zcvf ../../tars/libr5560-$DOCKER_IMAGE-i386.tar.gz .
     cd ../..
@@ -97,6 +99,7 @@ elif [ "$ARCHITECTURE" = "arm64" ]; then
     --description "Nuclear Instruments libR5560" \
     --url "https://www.sci-compiler.com/" \
     --maintainer "Andrea Abba <abba@nuclearinstruments.eu>" \
+    -d libzmq3-dev \
     .    
     tar zcvf ../../tars/libr5560-$DOCKER_IMAGE-arm64.tar.gz .
     cd ../..
@@ -121,6 +124,7 @@ elif [ "$ARCHITECTURE" = "armhf" ]; then
     --description "Nuclear Instruments libR5560" \
     --url "https://www.sci-compiler.com/" \
     --maintainer "Andrea Abba <abba@nuclearinstruments.eu>" \
+    -d libzmq3-dev \
     .    
     tar zcvf ../../tars/libr5560-$DOCKER_IMAGE-armhf.tar.gz .
     cd ../..
