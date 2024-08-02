@@ -2,6 +2,7 @@ stages:
   - build
   - release
   - push
+  - pck_push
 
 build_vs2022_windows:
   stage: build
