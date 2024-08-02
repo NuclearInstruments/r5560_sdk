@@ -4,7 +4,7 @@ rm -rf build_*
 unset CC
 unset CXX
 
-echo password | sudo -S apt update
+apt update
 
 
 # Controlla se è stato fornito almeno un argomento
@@ -34,7 +34,7 @@ BUILD="$(echo $MACHTYPE | sed "s/$(echo $MACHTYPE | cut -d- -f2)/cross/")"
 
 if [ "$ARCHITECTURE" = "x64" ]; then
     #compile x64 (native)
-    echo password | sudo -S apt install -y libzmq3-dev
+    apt install -y libzmq3-dev
     rm -rf build_x64
     mkdir -p build_x64
     cd build_x64
@@ -56,7 +56,7 @@ if [ "$ARCHITECTURE" = "x64" ]; then
     cd ../..
 elif [ "$ARCHITECTURE" = "i386" ]; then
     #compile x86 
-    echo password | sudo -S apt install -y libzmq3-dev:i386
+    apt install -y libzmq3-dev:i386
     rm -rf build_i386
     mkdir -p build_i386
     cd build_i386
@@ -78,7 +78,7 @@ elif [ "$ARCHITECTURE" = "i386" ]; then
     cd ../..
 elif [ "$ARCHITECTURE" = "arm64" ]; then
     #compile arm64
-    echo password | sudo -S apt install -y libzmq3-dev:arm64
+    apt install -y libzmq3-dev:arm64
     rm -rf build_arm64
     mkdir -p build_arm64
     cd build_arm64
@@ -102,7 +102,7 @@ elif [ "$ARCHITECTURE" = "arm64" ]; then
     cd ../..
 elif [ "$ARCHITECTURE" = "armhf" ]; then
     #compile armhf
-    echo password | sudo -S apt install -y libzmq3-dev:armhf
+    apt install -y libzmq3-dev:armhf
     rm -rf build_armhf
     mkdir -p build_armhf
     cd build_armhf
